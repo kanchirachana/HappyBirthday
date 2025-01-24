@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Hari!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fef2f2;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #e75a85;
+            margin-top: 20px;
+        }
+
+        .message {
+            font-size: 1.3em;
+            color: #6a4c91;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff3f9;
+            border-radius: 10px;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .image-container {
+            position: relative;
+            max-width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            width: 80%;
+            border-radius: 10px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ff66b2;
+        }
+
+        .surprise-message {
+            background-color: #ffccff;
+            padding: 15px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            border-radius: 10px;
+            color: #e75a85;
+            display: none;
+        }
+
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e75a85;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday, Hari</h1>
+    
+    <div class="message">
+        <p>On this special day, I just want to remind you how truly incredible you are. May your heart always be filled with joy, and may your dreams take flight. You deserve all the love, happiness, and success in the world. I am so thankful for you and the love you bring into my life. Here's to celebrating you today and every day. Happy Birthday, Hari! 🎉💖</p>
+    
+
+    <div class="countdown">
+        <p>Countdown to Your Special Day:</p>
+        <div id="countdown-timer"></div>
+    </div>
+
+    <div class="surprise-message" id="surprise-message">
+        <p>Surprise! 🎉 I thought you could use an extra dose of cuteness! Here's your surprise: You're so cute, even the stars want to take selfies with you. ✨📸 Stay adorable, and let's make this day unforgettable!</p>
+    </div>
+
+    <div class="surprise-message" id="funny-message">
+        <p>Just kidding! 😜 But seriously, you're so amazing that even my phone gets jealous of you! 📱❤️</p>
+    </div>
+
+    <div>
+        <a href="javascript:void(0);" class="button" onclick="showSurprise()">Unwrap Surprise</a>
+    </div>
+
+    <script>
+        // Countdown Timer
+        const countdownDate = new Date("Jan 25, 2025 00:00:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown-timer").innerHTML = "Happy Birthday!";
+            }
+        }, 1000);
+
+        // Show Surprise Function
+        function showSurprise() {
+            document.getElementById("surprise-message").style.display = 'none';
+            document.getElementById("funny-message").style.display = 'block';
+        }
+    </script>
+</body>
+</html>
